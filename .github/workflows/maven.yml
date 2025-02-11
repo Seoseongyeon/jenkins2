@@ -33,6 +33,6 @@ jobs:
     - name: Deploy to Tomcat Server #Tomcat서버에 WAR파일 배포()
     - run : mvn tomcat:deploy -DskipTests -f ./SpringProjectJenkins/pom.xml || mvn tomcat:redeploy -DskipTests -f ./SpringProjectJenkins/pom.xml
       env:
-        TOMCAT_USERNAME: tomcat #tomcat 사용자명
-        TOMCAT_PASSWORD: tomcat #tocat 비밀번호
+        TOMCAT_USERNAME: tomcat
+        TOMCAT_PASSWORD: tomcat
         TOMCAT_URL: 'https://c429-14-36-141-71.ngrok-free.app/manager/text'
