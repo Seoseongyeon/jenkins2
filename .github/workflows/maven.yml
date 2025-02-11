@@ -29,7 +29,4 @@ jobs:
       run: mvn clean install -DskipTests -f ./SpringProjectJenkins/pom.xml # 빌드 및 의존성 설치 (테스트는 건너뛰기)
     
     - name: Deploy to Tomcat Server #Tomcat서버에 WAR파일 배포()
-      env:
-        TOMCAT_USERNAME: tomcat
-        TOMCAT_PASSWORD: tomcat
-        TOMCAT_URL: 'https://c429-14-36-141-71.ngrok-free.app/manager/text'
+      run: mvn tomcat:deploy -DskipTests -f ./SpringProjectJenkins/pom.xml || mvn tomcat:redeploy -DskipTests -f ./SpringProjectJenkins/pom.xml
