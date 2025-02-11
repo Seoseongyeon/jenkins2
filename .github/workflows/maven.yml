@@ -11,8 +11,6 @@ name: Java CI with Maven
 on:
   push:
     branches: [ "main" ] #main 브랜치에 push가 발생 했을때 동작(트리거)
-  pull_request:
-    branches: [ "main" ] #main 브랜치에 pull request생성되면 트리거
 
 jobs:
   build:
@@ -31,7 +29,6 @@ jobs:
       run: mvn clean install -DskipTests -f ./SpringProjectJenkins/pom.xml # 빌드 및 의존성 설치 (테스트는 건너뛰기)
     
     - name: Deploy to Tomcat Server #Tomcat서버에 WAR파일 배포()
-    - run : mvn tomcat:deploy -DskipTests -f ./SpringProjectJenkins/pom.xml || mvn tomcat:redeploy -DskipTests -f ./SpringProjectJenkins/pom.xml
       env:
         TOMCAT_USERNAME: tomcat
         TOMCAT_PASSWORD: tomcat
